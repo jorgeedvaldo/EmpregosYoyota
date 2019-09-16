@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EmpregosYoyota.Models.VerEmprego>
+@{
+    ViewBag.Title = "Empregos";
+}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3 p-0 mb-3">
+			<div class="nav flex-column nav-pills p-3 m-0 bg-white border">
+				<p class="text-muted">Filtrar</p>
+				@foreach(string item in ViewBag.Categorias)
+                { 
+                    @Html.ActionLink(item, "Index", "Empregos", new { @categoria = item }, new { @class = "nav-link" })
+                }
+    		</div>
+		</div>
+
+        <div class="col-md-8 p-0 ml-3">
+            @foreach(var item in Model)
+            {
+                <div class="media border p-3 mb-4 bg-white">
+			  	    <div class="media-body">
+			    	    <h5 class="mt-0 font-weight-normal">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <span>Empresa: @Html.DisplayFor(modelItem => item.Empresa)</span><br />
+			    	    <i class="fa fa-map-marker"></i> <span>@Html.DisplayFor(modelItem => item.Provincia)</span><br />
+                        <span>Expira em: @item.DataExpira.ToShortDateString()</span>
+			    	    <a href="organization.html" class="btn btn-dark btn-block mt-3">Ver Detalhes</a>
+			  	    </div>
+			    </div>           
+            }           
+        </div>
+    </div>
+</div>
