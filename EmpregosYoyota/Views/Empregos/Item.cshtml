@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Item";
+﻿@model EmpregosYoyota.Models.VerEmprego
+@{
+    ViewBag.Title = @Model.Titulo;
 }
 
  <!-- Page Content -->
@@ -11,25 +12,25 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">Precisa-se de Técnico de frio</h1>
+        <h1 class="mt-4">@Model.Titulo</h1>
 
         <!-- Date/Time -->
-        <p>Publicado em: 02-09-2019</p>
+        <p>Publicado em: @Model.DataPublicado</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="~/Content/img/empregos/1.jpg" alt="Emprego">
+        <img class="img-fluid rounded" src="~/Content/img/empregos/@Model.Foto" alt="Emprego">
 
         <hr>
 
         <!-- Post Content -->
         <h3>Descrição:</h3>
-        <p class="lead">A "SFT Angola, S.A." é uma empresa de direito angolano cujo a sua principal actividade é a pesca nacional, importação de pescado e exportação. pretende recrutar candidato para área de: <br>1. Técnico de Frio - Sénior <br> Formação: Ensino Superior completo em Gestão Industrial Técnica. <br>Especialidade: Electrotecnia e Mecãnica de materiais isotérmicos e equipamentos de refrigeração <br>- Conhecimento das línguas Russa e Inglesa <br>- Experiência mínima de 5 anos. <br> Os interessados devem remeter o seu CV, para o correio electrónico: officeangola@sft.lt até ao dia 12 de Setembro de 2019.<br> FONTE: JORNAL DE ANGOLA (06-09-2019)</p>
+        <p class="lead">@MvcHtmlString.Create(@Model.Descricao)</p>
 
-        <p>Empresa: SFT Angola, S.A.</p>
-        <p>E-mail para a candidatura: officeangola@sft.lt</p>
-        <p>Oportunidade válida até: 12-09-2019</p>
+        <p>Empresa: @Model.Empresa</p>
+        <p>E-mail para a candidatura: @Model.Email</p>
+        <p>Oportunidade válida até: @Model.DataExpira.ToShortDateString()</p>
         <hr>
 
       </div>

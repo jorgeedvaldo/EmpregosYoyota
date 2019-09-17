@@ -15,7 +15,10 @@ namespace EmpregosYoyota.Models
         public String Titulo { get; set; }
         public String Empresa { get; set; }
         public String Provincia { get; set; }
+        public DateTime DataPublicado { get; set; }
         public DateTime DataExpira { get; set; }
+        public String Email { get; set; }
+        public String Descricao { get; set; }
         public String Foto { get; set; }
         public String Nome { get; set; }
 
@@ -50,7 +53,7 @@ namespace EmpregosYoyota.Models
             DataTable dt = new DataTable();
             VerEmprego verEmprego = new VerEmprego();
             dt = verEmprego.Exibir();
-            for (int i = 0; i < dt.Rows.Count; i++ )
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 VerEmprego empregoActual = new VerEmprego();
                 empregoActual.IdEmprego = Convert.ToInt32(dt.Rows[i]["IdEmprego"]);
@@ -58,7 +61,9 @@ namespace EmpregosYoyota.Models
                 empregoActual.Titulo = Convert.ToString(dt.Rows[i]["Titulo"]);
                 empregoActual.Empresa = Convert.ToString(dt.Rows[i]["Empresa"]);
                 empregoActual.Provincia = Convert.ToString(dt.Rows[i]["Provincia"]);
+                empregoActual.DataPublicado = DateTime.Now;//Convert.ToDateTime(dt.Rows[i]["DataExpira"]);
                 empregoActual.DataExpira = DateTime.Now;//Convert.ToDateTime(dt.Rows[i]["DataExpira"]);
+                empregoActual.Descricao = Convert.ToString(dt.Rows[i]["Descricao"]);
                 empregoActual.Foto = Convert.ToString(dt.Rows[i]["Foto"]);
                 empregoActual.Nome = Convert.ToString(dt.Rows[i]["Nome"]);
 

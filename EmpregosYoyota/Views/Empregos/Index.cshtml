@@ -23,7 +23,7 @@
                         <span>Empresa: @Html.DisplayFor(modelItem => item.Empresa)</span><br />
 			    	    <i class="fa fa-map-marker"></i> <span>@Html.DisplayFor(modelItem => item.Provincia)</span><br />
                         <span>Expira em: @item.DataExpira.ToShortDateString()</span>
-			    	    <a href="organization.html" class="btn btn-dark btn-block mt-3">Ver Detalhes</a>
+                        @Html.ActionLink("Ver Detalhes", "Item", "Empregos", new { @id = item.IdEmprego }, new { @class = "btn btn-dark btn-block mt-3"})
 			  	    </div>
 			    </div>           
             }           
