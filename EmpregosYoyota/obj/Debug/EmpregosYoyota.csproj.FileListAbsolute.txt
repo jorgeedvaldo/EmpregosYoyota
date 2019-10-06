@@ -77,4 +77,3 @@ C:\Users\Edvaldo\Documents\Projectos GitHub\EmpregosYoyota\EmpregosYoyota\bin\pt
 C:\Users\Edvaldo\Documents\Projectos GitHub\EmpregosYoyota\EmpregosYoyota\bin\pt-br\System.Web.WebPages.Razor.resources.dll
 C:\Users\Edvaldo\Documents\Projectos GitHub\EmpregosYoyota\EmpregosYoyota\obj\Debug\EmpregosYoyota.dll
 C:\Users\Edvaldo\Documents\Projectos GitHub\EmpregosYoyota\EmpregosYoyota\obj\Debug\EmpregosYoyota.pdb
-C:\Users\Edvaldo\Documents\Projectos GitHub\EmpregosYoyota\EmpregosYoyota\obj\Debug\EmpregosYoyota.csprojResolveAssemblyReference.cache

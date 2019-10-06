@@ -12,9 +12,13 @@ namespace EmpregosYoyota.Controllers
     {
         IEnumerable<VerEmprego> TodosEmpregos = new VerEmprego().TodosEmpregos();
 
-        public ActionResult Index(String categoria = "Tudo")
+        public ActionResult Index(String categoria = "Tudo", int p = 1)
         {
+            ViewBag.NumeroItensNaPagina = 20;
             ViewBag.Categorias = TodosEmpregos.Select(x => x.Nome).Distinct().ToList();
+            ViewBag.CategoriaActual = categoria;
+            ViewBag.PaginaActual = p;
+            ViewBag.ContarEmpregos = TodosEmpregos.Where(x => x.IdCategoria == 1).ToList().Count;
             var CategoriaEspecifica = TodosEmpregos.Where(x => x.Nome.ToLower() == categoria.ToLower()).ToList();
             return View(CategoriaEspecifica);
         }
@@ -23,7 +27,7 @@ namespace EmpregosYoyota.Controllers
         {   
             var EmpregoActual = TodosEmpregos.Where(x => x.IdEmprego == id).ToList();
             ViewBag.CategoriasDoEmprego = EmpregoActual.Select(x => x.Nome).Distinct().ToList();
-
+            ViewBag.ContarEmpregos = TodosEmpregos.Where(x => x.IdCategoria == 1).ToList().Count;
             var emprego = EmpregoActual.Take(1).ToList()[0];
             return View(emprego);
         }

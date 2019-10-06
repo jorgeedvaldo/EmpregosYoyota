@@ -6,26 +6,26 @@
 	<meta name="description" content="Encontre empregos no solo angolano." />
 	<meta name="keywords" content="emprego, job, recrutamento, angola" />
  	<meta name="autor" content="Name: Edivaldo Jorge" />
-    <title>Empregos Yoyota - @ViewBag.Title</title>
+    <title>@ViewBag.Title - Empregos Yoyota</title>
     @Styles.Render("~/Content/css")
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
 	  <div class="container">
-		  <a class="navbar-brand" href="index.html"> <img src="~/Content/img/logo.png"> </a>
+          <a class="navbar-band" href="~/"><img src="~/Content/img/logo.png"></a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 		    <ul class="navbar-nav">
 		      <li class="nav-item">
-		        <a class="nav-link" href="~/"><i class="fa fa-home"></i></a>
+                 @Html.ActionLink("Início", "Index", "Home", null, new { @class = "nav-link" })
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="~/Sobre">Sobre</a>
+		         @Html.ActionLink("Sobre", "Index", "Sobre", null, new { @class = "nav-link" })
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="~/Empregos">Empregos</a>
+		         @Html.ActionLink("Empregos", "Index", "Empregos", null, new { @class = "nav-link" })
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="~/Contactar">Contactar</a>

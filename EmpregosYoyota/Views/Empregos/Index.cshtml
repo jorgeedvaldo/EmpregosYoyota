@@ -9,24 +9,41 @@
 				<p class="text-muted">Filtrar</p>
 				@foreach(string item in ViewBag.Categorias)
                 { 
-                    @Html.ActionLink(item, "Index", "Empregos", new { @categoria = item }, new { @class = "nav-link" })
+                    @Html.ActionLink(item, "Index", "Empregos", new { @categoria = item, @p=1 }, new { @class = "nav-link" })
                 }
     		</div>
 		</div>
 
         <div class="col-md-8 p-0 ml-3">
-            @foreach(var item in Model)
+            @if(ViewBag.PaginaActual > 1)
             {
-                <div class="media border p-3 mb-4 bg-white">
-			  	    <div class="media-body">
-			    	    <h5 class="mt-0 font-weight-normal">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                        <span>Empresa: @Html.DisplayFor(modelItem => item.Empresa)</span><br />
-			    	    <i class="fa fa-map-marker"></i> <span>@Html.DisplayFor(modelItem => item.Provincia)</span><br />
-                        <span>Expira em: @item.DataExpira.ToShortDateString()</span>
-                        @Html.ActionLink("Ver Detalhes", "Item", "Empregos", new { @id = item.IdEmprego }, new { @class = "btn btn-dark btn-block mt-3"})
-			  	    </div>
-			    </div>           
-            }           
+                @Html.ActionLink("Anterior", "Index", "Empregos", new { @categoria = ViewBag.CategoriaActual, @p =  ViewBag.PaginaActual - 1 }, new { @class = "btn btn-dark btn-block mb-3" })
+            }
+            @for (int i = ViewBag.PaginaActual - 1; i < ViewBag.PaginaActual * ViewBag.NumeroItensNaPagina; i++)
+            {
+                try
+                {
+                    var item = Model.ToList()[i];
+                    <div class="media border p-3 mb-4 bg-white">
+			  	        <div class="media-body">
+			    	        <h5 class="mt-0 font-weight-normal">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <span>Empresa: @Html.DisplayFor(modelItem => item.Empresa)</span><br />
+			    	        <i class="fa fa-map-marker"></i> <span>@Html.DisplayFor(modelItem => item.Provincia)</span><br />
+                            <span>Expira em: @item.DataExpira.ToShortDateString()</span>
+                            @Html.ActionLink("Ver Detalhes", "Item", "Empregos", new { @id = item.IdEmprego }, new { @class = "btn btn-dark btn-block mt-3" })
+			  	        </div>
+			        </div>
+                }
+                catch 
+                {
+                    break;
+                }
+            }
+
+             @if (!((ViewBag.PaginaActual * ViewBag.NumeroItensNaPagina) >= ViewBag.ContarEmpregos))
+            {
+                @Html.ActionLink("Ver Mais", "Index", "Empregos", new { @categoria = ViewBag.CategoriaActual, @p =  ViewBag.PaginaActual + 1 }, new { @class = "btn btn-dark btn-block mb-3" })
+            }       
         </div>
     </div>
 </div>
