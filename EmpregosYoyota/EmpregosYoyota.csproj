@@ -124,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ContactarController.cs" />
     <Compile Include="Controllers\EmpregosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SobreController.cs" />
@@ -131,6 +132,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Conexao.cs" />
+    <Compile Include="Models\Mensagem.cs" />
     <Compile Include="Models\VerEmprego.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -145,6 +147,7 @@
     <Content Include="Content\img\empregos\1.jpg" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\bg_3.jpg" />
+    <Content Include="Content\img\bg_4.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Web.config" />
@@ -185,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Empregos\Item.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contactar\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

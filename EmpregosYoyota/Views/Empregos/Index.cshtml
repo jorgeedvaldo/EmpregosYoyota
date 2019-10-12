@@ -40,7 +40,7 @@
                 }
             }
 
-             @if (!((ViewBag.PaginaActual * ViewBag.NumeroItensNaPagina) >= ViewBag.ContarEmpregos))
+            @if (!((ViewBag.PaginaActual * ViewBag.NumeroItensNaPagina) >= ViewBag.ContarEmpregos))
             {
                 @Html.ActionLink("Ver Mais", "Index", "Empregos", new { @categoria = ViewBag.CategoriaActual, @p =  ViewBag.PaginaActual + 1 }, new { @class = "btn btn-dark btn-block mb-3" })
             }       

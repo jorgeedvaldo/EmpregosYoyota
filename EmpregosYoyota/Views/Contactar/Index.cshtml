@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Contactar";
+    bool Enviado = false;
+    EmpregosYoyota.Models.Mensagem mensagem = new EmpregosYoyota.Models.Mensagem();
+    if(IsPost)
+    {      
+        mensagem.Nome = Request.Form["Nome"];
+        mensagem.Email = Request.Form["Email"];
+        mensagem.Assunto = Request.Form["Assunto"];
+        mensagem.Msg = Request.Form["Msg"];     
+        
+        if(!(String.IsNullOrWhiteSpace(mensagem.Nome) || String.IsNullOrWhiteSpace(mensagem.Email) || String.IsNullOrWhiteSpace(mensagem.Msg)))
+        {
+            try
+            {
+                mensagem.Inserir(mensagem);
+                Enviado = true;
+                mensagem.Limpar();
+            }
+            catch{ }
+        }   
+    }
+}
+
+<section class="capa-sobre mb-5" style="background-image: url('/Content/img/bg_4.jpg');">
+	<div class="container">
+		<div class="row">
+		    <div class="col-md-12 mt-4 p-4 big-text center-all">
+				<p class="text-white">Contactar</p>
+		    </div>
+		</div>
+	</div>
+</section>
+<div class="container">
+    <div class="row justify-content-md-center mb-5">
+        <div class="col-md-8 border">
+            <h3 class="text-muted">Escreva para nós</h3>
+            @if(Enviado)
+            {
+                <div class="alert alert-success" role="alert">
+                    Mensagem Enviada com sucesso!
+                </div>
+            }
+            else if(!Enviado && IsPost)
+            {
+                <div class="alert alert-danger" role="alert">
+                    Erro ao enviar a mensagem, porfavor verifique os dados inseridos.
+                </div>
+            }
+	        <form method="post">
+		        <div class="col mb-2">
+			        <label>Nome</label>
+			        <input class="form-control" type="text" name="Nome" placeholder="Digite o nome" value="@mensagem.Nome">
+		            @if(IsPost && String.IsNullOrWhiteSpace(mensagem.Nome) && !Enviado)
+                    {
+                        <span class="badge badge-danger">Erro, por favor digite um nome válido.</span>
+                    }
+                </div>
+		        <div class="col mb-2">
+			        <label>E-mail</label>
+			        <input class="form-control" type="email" name="Email" placeholder="Digite o email" value="@mensagem.Email">
+		            @if (IsPost && String.IsNullOrWhiteSpace(mensagem.Email) && !Enviado)
+                    {
+                        <span class="badge badge-danger">Erro, por favor digite um email válido.</span>
+                    }        
+                </div>
+		        <div class="col mb-2">
+			        <label>Assunto</label>
+			        <input class="form-control" type="text" name="Assunto" placeholder="Digite o assunto" value="@mensagem.Assunto">
+		        </div>
+		        <div class="col mb-2">
+			        <label>Mensagem</label>
+			        <textarea class="form-control" name="Msg">@mensagem.Msg</textarea>
+		            @if (IsPost && String.IsNullOrWhiteSpace(mensagem.Msg) && !Enviado)
+                    {
+                        <span class="badge badge-danger">Erro, por favor digite uma mensagem válida.</span>
+                    }
+                </div>
+		        <div class="col mb-2">
+			        <input class="btn btn-dark btn-lg btn-block" type="submit" name="submit" value="Enviar">
+		        </div>
+                @if(Enviado)
+                {
+                    <div class="alert alert-success" role="alert">
+                        Mensagem Enviada com sucesso!
+                    </div>
+                }
+                else if(!Enviado && IsPost)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        Erro ao enviar a mensagem, porfavor verifique os dados inseridos.
+                    </div>
+                }
+	        </form>	
+        </div>
+        <div class="col-md-4 border">
+	        <h3 class="text-muted">Outras informações</h3>
+	        <h4 class="font-weight-light"><i class="fa fa-envelope-o text-dark"></i> geral@empregosyoyota.com</h4>
+	        <h4 class="font-weight-light"><i class="fa fa-instagram text-dark"></i> <a class="text-dark" href="https://instagram.com/empregosyoyota">empregosyoyota</a></h4>
+	        <h4 class="font-weight-light"><i class="fa fa-facebook text-dark"></i> <a class="text-dark" href="https://facebook.com/empregosyoyota">Empregos Yoyota</a></h4>
+        </div>
+    </div>
+</div>

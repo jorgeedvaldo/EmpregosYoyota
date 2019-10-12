@@ -13,22 +13,19 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
 	  <div class="container">
           <a class="navbar-band" href="~/"><img src="~/Content/img/logo.png"></a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		  <div class="navbar-collapse justify-content-end" id="navbarNav">
 		    <ul class="navbar-nav">
 		      <li class="nav-item">
-                 @Html.ActionLink("Início", "Index", "Home", null, new { @class = "nav-link" })
+                 @Html.ActionLink("INÍCIO", "Index", "Home", null, new { @class = "nav-link" })
 		      </li>
 		      <li class="nav-item">
-		         @Html.ActionLink("Sobre", "Index", "Sobre", null, new { @class = "nav-link" })
+		         @Html.ActionLink("SOBRE", "Index", "Sobre", null, new { @class = "nav-link" })
 		      </li>
 		      <li class="nav-item">
-		         @Html.ActionLink("Empregos", "Index", "Empregos", null, new { @class = "nav-link" })
+		         @Html.ActionLink("EMPREGOS", "Index", "Empregos", null, new { @class = "nav-link" })
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="~/Contactar">Contactar</a>
+                 @Html.ActionLink("CONTACTAR", "Index", "Contactar", null, new { @class = "nav-link" })
 		      </li>
 		    </ul>
 		  </div>
@@ -52,7 +49,7 @@
 	      <div class="col-md-4 col-lg-6 col-xl-3 mx-auto mt-3">
 	        <h6 class="text-uppercase mb-4 font-weight-bold">Contactar</h6>
 	        <p>
-	          <i class="fa fa-envelope mr-3"></i>info@empregosyoyota.tk</p>
+	          <i class="fa fa-envelope mr-3"></i>geral@empregosyoyota.com</p>
 	        <p>
 	          <i class="fa fa-phone mr-3"></i>+ 244 997 328 190</p>
 	        <p>
